@@ -1,0 +1,114 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:100,900);
+
+* {
+	box-sizing: border-box;
+	
+}
+html {
+  background: 
+    url("/img/portfolio-4.png") no-repeat left top scroll rgb(0,101,255);
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	color: #fff;
+  height: 100%;
+	width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Lato', sans-serif, "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 60px;
+	font-weight: 900;
+  margin-bottom: 0;
+	
+	text-transform: uppercase;
+}
+
+p  {
+
+  font-family: 'Lato', sans-serif, "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 60px;
+  letter-spacing: 1px;
+
+  margin-top: 1%;
+  text-transform: uppercase;
+}
+
+a:hover,
+a:focus {
+  color: #0dd;
+}
+
+
+.bold-font {
+  font-weight: 900;
+}
+
+header {
+	align-items: center;
+	-webkit-align-items: center;
+	
+	display: flex;
+	display: -webkit-flex;
+	flex-flow: row nowrap;
+	-webkit-flex-flow: row nowrap;
+	justify-content: space-between;
+	-webkit-justify-content: space-between;
+	height: 100%;
+}
+
+
+#name {
+  align-items: center;
+  webkit-align-items: center;
+  display: flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  display: flex;
+  justify-content: flex-start;
+  webkit-justify-content: flex-start;
+  width: 120%;
+  z-index: 1;
+}
+
+.name-content {
+  color: #ccc;
+}
+
+.left-element {
+  margin-top: 30%;
+}
+
+
+.right-element {
+  margin-right: 10%;
+}
+
+.content-section {
+	
+  padding-left: 10%;
+	height: 100%;
+}
+
+.flex-column {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+
+.flex-row {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+}
