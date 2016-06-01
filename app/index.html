@@ -21,8 +21,7 @@
       <h2 id="eliza">allo</h2>
       <p id ="tweet"> {{tweet}}</p>
       <button id="new-tweet" class="btn btn-default btn-lg"> Get another tweet </button>
-      <button id="play-tweet" class="btn btn-default btn-lg"> Play tweet </button>
-      <button id="extra" class="btn btn-default btn-lg"> Extra </button>
+      <input onclick='responsiveVoice.speak("Hello World");' type='button' value='🔊 Play' />
     </section>
     
     <!--JQuery-->
@@ -39,4 +38,7 @@
 
     <!--Script-->
     <script src="js/tweets.js"></script>
+    
+    <!--Speech Library-->
+    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
   </body>
