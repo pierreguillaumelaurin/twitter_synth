@@ -77,6 +77,10 @@ header {
   z-index: 1;
 }
 
+input {
+  height:15%;
+  width: 50%;
+}
 .name-content {
   color: #ccc;
 }

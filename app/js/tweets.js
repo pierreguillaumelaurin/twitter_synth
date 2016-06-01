@@ -7,7 +7,7 @@ $(document).ready(function() {
   /*** API call to twitter with twittie extension ***/
   $(document).keypress(function(e) {
     if(e.which == 13) {
-        var hashtag = $('#hashtag-form').text();
+        var hashtag = $('#hashtag-form').val();
     }
 
 	  
@@ -30,7 +30,6 @@ $(document).ready(function() {
     var initial = eliza.getInitial();
     var reply= eliza.transform(tweet);
     
-    reply = "My name isn't what you think it is";
 
     var replya = replaceStr(reply);
     /***********reply************/
@@ -44,7 +43,7 @@ $(document).ready(function() {
   }
 
   function replaceStr (str) {
-			  str = str.replace(/'/ , "");
+			  str = str.replace(/'/ , ' ');
 			  console.log("replaceStr is on");
 			  return str;
 			};
