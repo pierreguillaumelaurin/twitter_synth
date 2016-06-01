@@ -22,7 +22,10 @@ $(document).ready(function() {
 	  var eliza = new ElizaBot(true);
     var initial = eliza.getInitial();
     var reply= eliza.transform(tweet);
+
+    console.log(reply);
     
+    $("#speak-btn").attr("onclick","responsiveVoice.speak('"+ reply+ "');");
 
   }
 
