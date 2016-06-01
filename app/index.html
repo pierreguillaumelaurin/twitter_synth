@@ -5,10 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <!-- load Angular into our HTML Page -->
-    <script src="/bower_components/angular/angular.js"></script>
-    <!-- load our Angular App in -->
-    <script src="/public/app/app.js"></script>
 
     <!-- main CSS -->
     <link href="css/main.css" rel="stylesheet">
@@ -21,8 +17,9 @@
   </head>
 
   <body>
-  	<section class="jumbotron">
-      <p id ="tweet"> Here's where the tweet will go </p>
+  	<section>
+      <h2 id="eliza"></h2>
+      <p id ="tweet"> {{tweet}} </p>
       <button id="new-tweet" class="btn"> Get another tweet </button>
       <button id="play-tweet" class="btn"> Play tweet </button>
       <button id="extra" class="btn"> Extra </button>
@@ -30,6 +27,15 @@
     
     <!--JQuery-->
     <script src="js/jquery.js"></script>
+
+    <!--Jquery Tweetie Extension-->
+    <script src="Tweetie-master/tweetie.js"></script>
+
+    <!--Elizabot Library and Elizabot Data-->
+    <script src="js/elizadata.js"></script>
+    <!--Elizabot Library-->
+    <script src="js/elizabot.js"></script>
+
 
     <!--Script-->
     <script src="js/tweets.js"></script>

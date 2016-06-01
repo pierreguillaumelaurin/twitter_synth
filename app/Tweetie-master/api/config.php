@@ -3,12 +3,12 @@
      * Your Twitter App Info
      */
     // Consumer Key
-    define('CONSUMER_KEY', 'mJ5otbhPGNoDCgCL7j5g');
-    define('CONSUMER_SECRET', 'M0XkT6GeBnjxdlWHcSGYX1JutMVS9D5ISlkqRfShg');
+    define('CONSUMER_KEY', 'DXzhw8kkNOaVInEWlD7j0hJPY');
+    define('CONSUMER_SECRET', 'MCLBtoFaIc9iuMcyrWkYseNzXwmXM3VZwKCnwmJdru3Yub8q1E');
 
     // User Access Token
-    define('ACCESS_TOKEN', '4878723639-UacBTUlpPUB2MOVexsjpLiOluLprXXRa0v1Dmg2');
-    define('ACCESS_SECRET', 'cp2alhKu904LfEdrvmgY7Ag2YQJC3mEwSRQwJ9FIQ4mzt');
+    define('ACCESS_TOKEN', '4878723639-SNZ8X3hpGsVBnjuwC8BTf0r00rp1FVYnDuSb963');
+    define('ACCESS_SECRET', 'jOaq8SdbwZMmvCabh7tloDVP1cLNip7tfJXGyxU86tKFo');
 	
 	// Cache Settings
 	define('CACHE_ENABLED', false);
