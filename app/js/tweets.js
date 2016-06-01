@@ -5,14 +5,21 @@ $(document).ready(function() {
 	var tweet;
   
   /*** API call to twitter with twittie extension ***/
+  $(document).keypress(function(e) {
+    if(e.which == 13) {
+        var hashtag = $('#hashtag-form').text();
+    }
 
-  $('#tweet').twittie({
-  	'hashtag': 'short',
-  	'count': 1,
-  	'hideReplies': true,
-  	'template': '{{tweet}}',
-  	'apiPath': 'http://localhost/~pierre-guillaume/coveo_projet/app/Tweetie-Master/api/tweet.php'
-    }, getElizasAnswer);
+	  
+
+	  $('#tweet').twittie({
+	  	'hashtag': hashtag,
+	  	'count': 1,
+	  	'hideReplies': true,
+	  	'template': '{{tweet}}',
+	  	'apiPath': 'http://localhost/~pierre-guillaume/coveo_projet/app/Tweetie-Master/api/tweet.php'
+	    }, getElizasAnswer);
+    });
 
   /*** declare tweet as variable ***/
   function getElizasAnswer () {
@@ -22,23 +29,25 @@ $(document).ready(function() {
 	  var eliza = new ElizaBot(true);
     var initial = eliza.getInitial();
     var reply= eliza.transform(tweet);
+    
+    reply = "My name isn't what you think it is";
 
+    var replya = replaceStr(reply);
     /***********reply************/
-    /*reply = 'Hello world';
+    
     /****************************/
     console.log(reply);
     
-    $("#speak-btn").attr("onclick","responsiveVoice.speak('"+ reply+ "');");
+    $("#speak-btn").attr("onclick","responsiveVoice.speak('" + replya + "');");
 
-    function replaceStr (str) {
-			  str.replace("'","");
+
+  }
+
+  function replaceStr (str) {
+			  str = str.replace(/'/ , "");
 			  console.log("replaceStr is on");
 			  return str;
 			};
-
-		
-
-  }
 
   /*** eliza app ***/
 
