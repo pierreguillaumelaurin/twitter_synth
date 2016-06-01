@@ -90,6 +90,15 @@ header {
   margin-right: 10%;
 }
 
+.app-container {
+  background-color: #fff;
+  color: rgb(0,101,255);
+  height: auto;
+  max-height: 90%;
+  width: auto;
+  max-width: 80%;
+}
+
 .content-section {
 	
   padding-left: 10%;
@@ -97,6 +106,8 @@ header {
 }
 
 .flex-column {
+  align-items: center;
+  webkit-align-items: center;
   display: flex;
   display: -webkit-flex;
   flex-direction: column;
