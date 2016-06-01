@@ -122,3 +122,11 @@ header {
   justify-content: flex-end;
   -webkit-justify-content: flex-end;
 }
+
+.btn {
+  border: solid white 2px;
+  font family: 'Lato';
+  height: 10%;
+  margin-bottom: 10%;
+  width: 15%;
+}

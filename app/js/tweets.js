@@ -7,7 +7,7 @@ $(document).ready(function() {
   /*** API call to twitter with twittie extension ***/
 
   $('#tweet').twittie({
-  	'hashtag': 'kanyewest',
+  	'hashtag': 'short',
   	'count': 1,
   	'hideReplies': true,
   	'template': '{{tweet}}',
@@ -23,9 +23,20 @@ $(document).ready(function() {
     var initial = eliza.getInitial();
     var reply= eliza.transform(tweet);
 
+    /***********reply************/
+    /*reply = 'Hello world';
+    /****************************/
     console.log(reply);
     
     $("#speak-btn").attr("onclick","responsiveVoice.speak('"+ reply+ "');");
+
+    function replaceStr (str) {
+			  str.replace("'","");
+			  console.log("replaceStr is on");
+			  return str;
+			};
+
+		
 
   }
 
