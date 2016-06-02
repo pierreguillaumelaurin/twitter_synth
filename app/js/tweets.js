@@ -30,7 +30,16 @@ $(document).ready(function() {
         'hideReplies': true,
         'template': '{{tweet}}',
         'apiPath': 'http://localhost/~pierre-guillaume/coveo_projet/app/Tweetie-Master/api/tweet.php'
-        }, setSpeakButtonToTweet);
+        }, getArrayOfWords);
+  }
+
+  function getArrayOfWords () {
+    var words = []
+    tweet = $('#tweet').text();
+    words = tweet.split(" ");
+    console.log(words);
+    return words;
+    setSpeakButtonToTweet();
   }
 
   function setSpeakButtonToTweet () {
@@ -68,6 +77,33 @@ $(document).ready(function() {
     $("#redo-btn").removeClass('hidden');
     $("#speak-btn").attr("onclick","responsiveVoice.speak('" + arg + "');");
   }
+
+
+  /************* Synth related functions *************/
+
+
+  function createAmplifier(audio, startValue, duration) {
+  var amplifier = audio.createGain();
+  rampDown(audio, amplifier.gain, startValue, duration);
+  return amplifier;
+  };
+
+  function chain(items) {
+    for (var i = 0; i < items.length - 1; i++) {
+      items[i].connect(items[i + 1]);
+    }
+  };
+
+  function note(audio, frequency) {
+    return function() {
+      var duration = 1;
+      var sineWave = createSineWave(audio, duration);
+      chain([sineWave,
+             createAmplifier(audio, 0.2, duration),
+             audio.destination]);
+      sineWave.connect(audio.destination);
+    }
+  };
 
 });
 
