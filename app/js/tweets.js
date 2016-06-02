@@ -1,11 +1,14 @@
 $(document).ready(function() {
-/************** High-Level Logic ***************/
+  /***************************************/
+  /************* Main "Loop" ***/
+  /***************************************/
   console.log('doc ready!');
 
 	var tweet;
   
   /*** API call to twitter with twittie extension ***/
   $('#hashtag-form').keypress(function(e) {
+
     if(e.which == 13) {
         getTweet();
       }
@@ -13,8 +16,9 @@ $(document).ready(function() {
 
   $('#redo-btn').click(reset);
 
-  /*** declare tweet as variable ***/
-  
+  /***************************************/
+  /************* Lower level functions ***/
+  /***************************************/
 
   function getTweet() {
 
@@ -30,6 +34,7 @@ $(document).ready(function() {
   }
 
   function getElizasAnswer () {
+
     tweet = $('#tweet').text();
     console.log(tweet);
 
@@ -45,12 +50,14 @@ $(document).ready(function() {
   }
 
   function replaceStr (str) {
+
 			  str = str.replace(/'/ , ' ');
 			  console.log("replaceStr is on");
 			  return str;
 			};
 
   function reset () {
+
     $("#hashtag-form").removeClass('hidden');
     $("#hashtag-form").val('');
 
@@ -62,6 +69,7 @@ $(document).ready(function() {
   }
 
   function updateToSecondView (arg) {
+
     $("#hashtag-form").addClass('hidden');
     $("#speak-btn").removeClass('hidden');
     $("#redo-btn").removeClass('hidden');
