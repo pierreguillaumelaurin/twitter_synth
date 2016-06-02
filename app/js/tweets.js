@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+/************** High-Level Logic ***************/
   console.log('doc ready!');
 
 	var tweet;
@@ -7,15 +7,7 @@ $(document).ready(function() {
   /*** API call to twitter with twittie extension ***/
   $('#hashtag-form').keypress(function(e) {
     if(e.which == 13) {
-        var hashtag = $('#hashtag-form').val();
-    
-  	  $('#tweet').twittie({
-  	  	'hashtag': hashtag,
-  	  	'count': 1,
-  	  	'hideReplies': true,
-  	  	'template': '{{tweet}}',
-  	  	'apiPath': 'http://localhost/~pierre-guillaume/coveo_projet/app/Tweetie-Master/api/tweet.php'
-  	    }, getElizasAnswer);
+        getTweet();
       }
     });
 
@@ -29,19 +21,25 @@ $(document).ready(function() {
 	  var eliza = new ElizaBot(true);
     var initial = eliza.getInitial();
     var reply= eliza.transform(tweet);
-    
-
-    var replya = replaceStr(reply);
-    /***********reply************/
-    
-    /****************************/
+    reply = replaceStr(reply);
     console.log(reply);
-    $("#hashtag-form").addClass('hidden');
-    $("#speak-btn").removeClass('hidden');
-    $("#redo-btn").removeClass('hidden');
-    $("#speak-btn").attr("onclick","responsiveVoice.speak('" + replya + "');");
+    
+    updateToSecondView(reply);
 
 
+  }
+
+  function getTweet() {
+
+    var hashtag = $('#hashtag-form').val();
+    
+      $('#tweet').twittie({
+        'hashtag': hashtag,
+        'count': 1,
+        'hideReplies': true,
+        'template': '{{tweet}}',
+        'apiPath': 'http://localhost/~pierre-guillaume/coveo_projet/app/Tweetie-Master/api/tweet.php'
+        }, getElizasAnswer);
   }
 
   function replaceStr (str) {
@@ -59,12 +57,13 @@ $(document).ready(function() {
     $("#speak-btn").attr("onclick","responsiveVoice.speak('" + replya + "');");
   }
 
+  function updateToSecondView (arg) {
+    $("#hashtag-form").addClass('hidden');
+    $("#speak-btn").removeClass('hidden');
+    $("#redo-btn").removeClass('hidden');
+    $("#speak-btn").attr("onclick","responsiveVoice.speak('" + arg + "');");
+  }
 
-	
-	
- 
-
-
-  });
+});
 
 
