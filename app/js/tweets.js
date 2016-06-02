@@ -8,17 +8,15 @@ $(document).ready(function() {
   $(document).keypress(function(e) {
     if(e.which == 13) {
         var hashtag = $('#hashtag-form').val();
-    }
-
-	  
-
-	  $('#tweet').twittie({
-	  	'hashtag': hashtag,
-	  	'count': 1,
-	  	'hideReplies': true,
-	  	'template': '{{tweet}}',
-	  	'apiPath': 'http://localhost/~pierre-guillaume/coveo_projet/app/Tweetie-Master/api/tweet.php'
-	    }, getElizasAnswer);
+    
+  	  $('#tweet').twittie({
+  	  	'hashtag': hashtag,
+  	  	'count': 1,
+  	  	'hideReplies': true,
+  	  	'template': '{{tweet}}',
+  	  	'apiPath': 'http://localhost/~pierre-guillaume/coveo_projet/app/Tweetie-Master/api/tweet.php'
+  	    }, getElizasAnswer);
+      }
     });
 
   /*** declare tweet as variable ***/
