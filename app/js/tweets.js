@@ -30,21 +30,14 @@ $(document).ready(function() {
         'hideReplies': true,
         'template': '{{tweet}}',
         'apiPath': 'http://localhost/~pierre-guillaume/coveo_projet/app/Tweetie-Master/api/tweet.php'
-        }, getElizasAnswer);
+        }, setSpeakButtonToTweet);
   }
 
-  function getElizasAnswer () {
+  function setSpeakButtonToTweet () {
 
     tweet = $('#tweet').text();
-    console.log(tweet);
-
-    var eliza = new ElizaBot(true);
-    var initial = eliza.getInitial();
-    var reply= eliza.transform(tweet);
-    reply = replaceStr(reply);
-    console.log(reply);
     
-    updateToSecondView(reply);
+    updateToSecondView(tweet);
 
 
   }
