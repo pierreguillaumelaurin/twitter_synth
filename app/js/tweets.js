@@ -14,20 +14,7 @@ $(document).ready(function() {
   $('#redo-btn').click(reset);
 
   /*** declare tweet as variable ***/
-  function getElizasAnswer () {
-	  tweet = $('#tweet').text();
-	  console.log(tweet);
-
-	  var eliza = new ElizaBot(true);
-    var initial = eliza.getInitial();
-    var reply= eliza.transform(tweet);
-    reply = replaceStr(reply);
-    console.log(reply);
-    
-    updateToSecondView(reply);
-
-
-  }
+  
 
   function getTweet() {
 
@@ -42,6 +29,21 @@ $(document).ready(function() {
         }, getElizasAnswer);
   }
 
+  function getElizasAnswer () {
+    tweet = $('#tweet').text();
+    console.log(tweet);
+
+    var eliza = new ElizaBot(true);
+    var initial = eliza.getInitial();
+    var reply= eliza.transform(tweet);
+    reply = replaceStr(reply);
+    console.log(reply);
+    
+    updateToSecondView(reply);
+
+
+  }
+
   function replaceStr (str) {
 			  str = str.replace(/'/ , ' ');
 			  console.log("replaceStr is on");
@@ -51,10 +53,12 @@ $(document).ready(function() {
   function reset () {
     $("#hashtag-form").removeClass('hidden');
     $("#hashtag-form").val('');
+
     $("#speak-btn").addClass('hidden');
+    $("#speak-btn").empty();
+
     $("#redo-btn").addClass('hidden');
     $("#tweet").empty();
-    $("#speak-btn").attr("onclick","responsiveVoice.speak('" + replya + "');");
   }
 
   function updateToSecondView (arg) {
