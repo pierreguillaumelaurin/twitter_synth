@@ -52,6 +52,7 @@ $(document).ready(function() {
 
   function reset () {
     $("#hashtag-form").removeClass('hidden');
+    $("#hashtag-form").val('');
     $("#speak-btn").addClass('hidden');
     $("#redo-btn").addClass('hidden');
     $("#tweet").empty();
