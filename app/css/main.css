@@ -23,23 +23,23 @@ h4,
 h5,
 h6 {
 	font-family: 'Lato', sans-serif, "Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-size: 60px;
+	font-size: 20px;
 	font-weight: 900;
   margin-bottom: 0;
 	
 	text-transform: uppercase;
 }
 
-p  {
+p,
+input  {
 
   font-family: 'Lato', sans-serif, "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 60px;
+  font-size: 20px;
   letter-spacing: 1px;
 
   margin-top: 1%;
   text-transform: uppercase;
 }
-
 a:hover,
 a:focus {
   color: #0dd;
@@ -78,9 +78,18 @@ header {
 }
 
 input {
-  height:15%;
+  border: none;
+  color: rgb(0,101,255);
   width: 50%;
+  
 }
+
+#speak-btn {
+  background = rgb(0,101,255);
+  border = none;
+  color = #fff;
+}
+
 .name-content {
   color: #ccc;
 }
