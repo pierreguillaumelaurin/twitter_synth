@@ -5,7 +5,7 @@ $(document).ready(function() {
 	var tweet;
   
   /*** API call to twitter with twittie extension ***/
-  $(document).keypress(function(e) {
+  $('#hashtag-form').keypress(function(e) {
     if(e.which == 13) {
         var hashtag = $('#hashtag-form').val();
     
@@ -34,7 +34,9 @@ $(document).ready(function() {
     
     /****************************/
     console.log(reply);
-    
+    $("#hashtag-form").addClass('hidden');
+    $("#speak-btn").removeClass('hidden');
+    $("#redo-btn").removeClass('hidden');
     $("#speak-btn").attr("onclick","responsiveVoice.speak('" + replya + "');");
 
 

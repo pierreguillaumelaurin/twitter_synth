@@ -80,28 +80,10 @@ header {
 input {
   border: none;
   color: rgb(0,101,255);
-  width: 50%;
-  
-}
-
-#speak-btn {
-  background = rgb(0,101,255);
-  border = none;
-  color = #fff;
-}
-
-.name-content {
-  color: #ccc;
-}
-
-.left-element {
-  margin-top: 30%;
+  width: 50%; 
 }
 
 
-.right-element {
-  margin-right: 10%;
-}
 
 .app-container {
   background-color: #fff;
@@ -110,6 +92,32 @@ input {
   max-height: 90%;
   width: auto;
   max-width: 80%;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.triangle {
+    align-items: flex-start;
+    -webkit-align-items: flex-start;
+    width: 0;
+    height: 0;
+    left: 0;
+    padding-bottom: 10%;
+    padding-left: 7%;
+    overflow: hidden;
+}
+
+.triangle:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    margin-left: -500px;
+    border-bottom: 500px solid transparent;
+    border-left: 500px solid #FFF;
 }
 
 .content-section {
@@ -129,6 +137,8 @@ input {
 }
 
 .flex-row {
+  align-items: center;
+  webkit-align-items: center;
   display: flex;
   display: -webkit-flex;
   flex-direction: row;
@@ -138,8 +148,26 @@ input {
 
 .btn {
   border: solid white 2px;
+  color: rgb(0,101,255);
+  cursor: pointer;
   font family: 'Lato';
   height: 10%;
   margin-bottom: 10%;
-  width: 15%;
+  width: 25%;
+}
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+
+:-ms-input-placeholder {  
+   text-align: center; 
 }
