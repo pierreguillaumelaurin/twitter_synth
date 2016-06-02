@@ -19,6 +19,8 @@ $(document).ready(function() {
       }
     });
 
+  $('#redo-btn').click(reset);
+
   /*** declare tweet as variable ***/
   function getElizasAnswer () {
 	  tweet = $('#tweet').text();
@@ -48,7 +50,14 @@ $(document).ready(function() {
 			  return str;
 			};
 
-  /*** eliza app ***/
+  function reset () {
+    $("#hashtag-form").removeClass('hidden');
+    $("#speak-btn").addClass('hidden');
+    $("#redo-btn").addClass('hidden');
+    $("#tweet").empty();
+    $("#speak-btn").attr("onclick","responsiveVoice.speak('" + replya + "');");
+  }
+
 
 	
 	
