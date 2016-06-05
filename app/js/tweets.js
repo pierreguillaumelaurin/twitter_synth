@@ -37,6 +37,7 @@ $(document).ready(function() {
     var words = []
     tweet = $('#tweet').text();
     words = tweet.split(" ");
+
     console.log(words);
     return words;
     setSpeakButtonToTweet();
@@ -81,6 +82,16 @@ $(document).ready(function() {
 
   /************* Synth related functions *************/
 
+  function note(audio, frequency) {
+    return function() {
+      var duration = 1;
+      var sineWave = createSineWave(audio, duration);
+      chain([sineWave,
+             createAmplifier(audio, 0.2, duration),
+             audio.destination]);
+      sineWave.connect(audio.destination);
+    }
+  };
 
   function createAmplifier(audio, startValue, duration) {
   var amplifier = audio.createGain();
@@ -94,16 +105,16 @@ $(document).ready(function() {
     }
   };
 
-  function note(audio, frequency) {
-    return function() {
-      var duration = 1;
-      var sineWave = createSineWave(audio, duration);
-      chain([sineWave,
-             createAmplifier(audio, 0.2, duration),
-             audio.destination]);
-      sineWave.connect(audio.destination);
-    }
-  };
+  function createSineWave(audio, duration) {
+  var oscillator = audio.createOscillator();
+  oscillator.type = "sine";
+
+  oscillator.start(audio.currentTime);
+  oscillator.stop(audio.currentTime + duration);
+
+  return oscillator;
+};
+
 
 });
 
