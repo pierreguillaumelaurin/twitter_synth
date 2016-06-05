@@ -147,7 +147,8 @@ input {
   -webkit-justify-content: flex-end;
 }
 
-.btn {
+.btn,
+.synth-btn {
   border: solid white 2px;
   color: rgb(0,101,255);
   cursor: pointer;
@@ -156,6 +157,7 @@ input {
   margin-bottom: 10%;
   width: 25%;
 }
+
 
 ::-webkit-input-placeholder {
    text-align: center;

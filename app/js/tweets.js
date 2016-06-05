@@ -3,6 +3,11 @@ $(document).ready(function() {
   /************* Main "Loop" ***/
   /***************************************/
   console.log('doc ready!');
+  
+  //test
+  var saw = new Wad({source : 'sawtooth'});
+  saw.play();
+  saw.stop();
 
 	var tweet;
   
@@ -34,13 +39,15 @@ $(document).ready(function() {
   }
 
   function getArrayOfWords () {
+
     var words = []
     tweet = $('#tweet').text();
     words = tweet.split(" ");
 
     console.log(words);
-    return words;
     setSpeakButtonToTweet();
+
+    return words;
   }
 
   function setSpeakButtonToTweet () {
@@ -72,48 +79,15 @@ $(document).ready(function() {
   }
 
   function updateToSecondView (arg) {
-
+    console.log('update is on');
     $("#hashtag-form").addClass('hidden');
     $("#speak-btn").removeClass('hidden');
     $("#redo-btn").removeClass('hidden');
-    $("#speak-btn").attr("onclick","responsiveVoice.speak('" + arg + "');");
+    $("#E").click(function() {
+      responsiveVoice.speak(arg);
+    });
   }
 
-
-  /************* Synth related functions *************/
-
-  function note(audio, frequency) {
-    return function() {
-      var duration = 1;
-      var sineWave = createSineWave(audio, duration);
-      chain([sineWave,
-             createAmplifier(audio, 0.2, duration),
-             audio.destination]);
-      sineWave.connect(audio.destination);
-    }
-  };
-
-  function createAmplifier(audio, startValue, duration) {
-  var amplifier = audio.createGain();
-  rampDown(audio, amplifier.gain, startValue, duration);
-  return amplifier;
-  };
-
-  function chain(items) {
-    for (var i = 0; i < items.length - 1; i++) {
-      items[i].connect(items[i + 1]);
-    }
-  };
-
-  function createSineWave(audio, duration) {
-  var oscillator = audio.createOscillator();
-  oscillator.type = "sine";
-
-  oscillator.start(audio.currentTime);
-  oscillator.stop(audio.currentTime + duration);
-
-  return oscillator;
-};
 
 
 });
