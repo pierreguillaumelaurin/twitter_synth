@@ -95,6 +95,9 @@ $(document).ready(function() {
     for(var i = 0; i <= keys.length; i++) {
       console.log(pitches[i]);
       $('#' + keys[i]).click({thepitch: pitches[i]}, addSoundToKeyboard);
+      $('#' + keys[i]).keypress(function(e) {
+        if(e.which == 68) {addSoundToKeyboard}
+      });
     }
 
     function addSoundToKeyboard(event) {
