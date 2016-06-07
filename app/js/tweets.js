@@ -4,12 +4,9 @@ $(document).ready(function() {
   /***************************************/
   console.log('doc ready!');
   
-  //test
-  var saw = new Wad({source : 'sawtooth'});
-  saw.play();
-  saw.stop();
-
+  
 	var tweet;
+  var currentWordIndex = 0;
   
   /*** API call to twitter with twittie extension ***/
   $('#hashtag-form').keypress(function(e) {
@@ -39,32 +36,13 @@ $(document).ready(function() {
   }
 
   function getArrayOfWords () {
-
-    var words = []
     tweet = $('#tweet').text();
-    words = tweet.split(" ");
+    tweet = tweet.split(" ");
 
-    console.log(words);
-    setSpeakButtonToTweet();
-
-    return words;
-  }
-
-  function setSpeakButtonToTweet () {
-
-    tweet = $('#tweet').text();
-    
-    updateToSecondView(tweet);
-
+    console.log(tweet);
+    updateToSecondView();
 
   }
-
-  function replaceStr (str) {
-
-			  str = str.replace(/'/ , ' ');
-			  console.log("replaceStr is on");
-			  return str;
-			};
 
   function reset () {
 
@@ -78,34 +56,51 @@ $(document).ready(function() {
     $("#tweet").empty();
   }
 
-  function updateToSecondView (arg) {
-    console.log('update is on');
+  function updateToSecondView () {
     $("#hashtag-form").addClass('hidden');
     $("#speak-btn").removeClass('hidden');
     $("#redo-btn").removeClass('hidden');
 
-    updateKeyboard(arg);
+    updateKeyboard();
   }
 
-  function updateKeyboard (arg) {
-
+  function updateKeyboard () {
     var keys = ['D','F','G','H','J', 'K', 'L'];
     var pitches = ['0', '0.4', '0.8', '1.1', '1.4', '1.7', '2'];
 
     for(var i = 0; i <= keys.length; i++) {
-      console.log(pitches[i]);
       $('#' + keys[i]).click({thepitch: pitches[i]}, addSoundToKeyboard);
       $('#' + keys[i]).keypress(function(e) {
         if(e.which == 68) {addSoundToKeyboard}
       });
     }
 
-    function addSoundToKeyboard(event) {
-        console.log(event.data.thepitch);
-        var speech = responsiveVoice.speak(arg,"UK English Male", {pitch: event.data.thepitch});
-      }
   }
 
+  function addSoundToKeyboard(event) {
+        var speech = responsiveVoice.speak(tweet[currentWordIndex],"UK English Male", {pitch: event.data.thepitch});
+        console.log(currentWordIndex +"|" + tweet.length);
+        incrementCurrentWordIndex();
+      }
+
+  function incrementCurrentWordIndex() {
+    console.log(tweet[tweet.length-1]);
+    if (tweet[currentWordIndex] == tweet[tweet.length-1]) {
+      currentWordIndex = 0;
+    }
+    else {
+    currentWordIndex += 1;
+    }
+  }
+
+  function resetKeyboard () {
+    var keys = ['D','F','G','H','J', 'K', 'L'];
+    var pitches = ['0', '0.4', '0.8', '1.1', '1.4', '1.7', '2'];
+
+    for(var i = 0; i <= keys.length; i++) {
+      $('#' + keys[i]).unbind();
+    }
+  }
 
 
 });
