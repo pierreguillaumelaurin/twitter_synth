@@ -94,11 +94,13 @@ $(document).ready(function() {
 
     for(var i = 0; i <= keys.length; i++) {
       console.log(pitches[i]);
-      $(keys[i]).click({thepitch: pitches[i]}, function (event) {
+      $(keys[i]).click({thepitch: pitches[i]}, addSoundToKeyboard);
+    }
+
+    function addSoundToKeyboard(event) {
         console.log(event.data.thepitch);
         var speech = responsiveVoice.speak(arg,"UK English Male", {pitch: event.data.thepitch});
-      })
-    }
+      }
   }
 
 
