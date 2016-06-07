@@ -70,6 +70,7 @@ $(document).ready(function() {
 
     for(var i = 0; i <= keys.length; i++) {
       $('#' + keys[i]).click({thepitch: pitches[i]}, addSoundToKeyboard);
+      $('#' + keys[i]).addClass('btn synth-key');
       $('#' + keys[i]).keypress(function(e) {
         if(e.which == 68) {addSoundToKeyboard}
       });
@@ -78,7 +79,8 @@ $(document).ready(function() {
   }
 
   function addSoundToKeyboard(event) {
-        var speech = responsiveVoice.speak(tweet[currentWordIndex],"UK English Male", {pitch: event.data.thepitch});
+        var content = tweet[currentWordIndex]+Array(10).join(tweet[currentWordIndex].slice(-2));
+        var speech = responsiveVoice.speak(content,"UK English Male", {pitch: event.data.thepitch});
         console.log(currentWordIndex +"|" + tweet.length);
         incrementCurrentWordIndex();
       }

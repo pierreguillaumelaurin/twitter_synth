@@ -18,19 +18,19 @@
 
   <body class="flex-column">
     <section class="app-container flex-column">
-      <input id="hashtag-form" autofocus="autofocus" placeholder="Type a #">
+      <input id="hashtag-form" autofocus="autofocus" class="text-input-btn" placeholder="Type a #">
       <p id ="tweet"> {{tweet}}</p>
 
       <div class="flex-row">
-        <input id="D" class="btn synth-btn">
-        <input id="F" class="btn synth-btn">
-        <input id="G" class="btn synth-btn">
-        <input id="H" class="btn synth-btn">
-        <input id="J" class="btn synth-btn">
-        <input id="K" class="btn synth-btn">
-        <input id="L" class="btn synth-btn">
+        <input id="D" value = lowest>
+        <input id="F">
+        <input id="G">
+        <input id="H">
+        <input id="J">
+        <input id="K">
+        <input id="L">
       </div>
-      <input id="redo-btn" class="btn hidden" value="Another one">
+      <input id="redo-btn" class="btn hidden text-input-btn" value="Another one">
     </section>
     <div class="triangle"></div>
     
@@ -40,11 +40,6 @@
     <!--Jquery Tweetie Extension-->
     <script src="Tweetie-master/tweetie.js"></script>
 
-    <!--Elizabot Library and Elizabot Data-->
-    <script src="js/elizadata.js"></script>
-    <!--Elizabot Library-->
-    <script src="js/elizabot.js"></script>
-    
     <!--Speech Library-->
     <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
 
