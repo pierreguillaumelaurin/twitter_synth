@@ -83,9 +83,47 @@ $(document).ready(function() {
     $("#hashtag-form").addClass('hidden');
     $("#speak-btn").removeClass('hidden');
     $("#redo-btn").removeClass('hidden');
-    $("#E").click(function() {
-      responsiveVoice.speak(arg);
+
+    updateKeyboard(arg);
+    /*
+    $("#D").click(function() {
+      $.get('http://api.voicerss.org/?'+'key=eed2c5feee9243eca9237d381c92af18'+ '&src='+'yolo'+'&hl=en-us'+'&c=mp3', function(data){
+        var speech = new Wad({source: data});
+        speech.play({
+          globalReverb: true,
+          pitch: 'B6'
+        });
+      });
     });
+
+    $("#E").click(function() {
+      var speech = responsiveVoice.speak(arg,"UK English Male", {pitch: 0.8});
+    });
+    
+    $("#E").click(function() {
+      var speech = responsiveVoice.speak(arg,"UK English Male", {pitch: 1});
+      var voice = new Wad({source: speech});
+      console.log(voice.destination);
+      voice.play({
+        globalReverb: true,
+        pitch: 'A2'
+      });
+    });
+    */
+  }
+
+  function updateKeyboard (arg) {
+
+    var keys = ['#A','#B','#C','#D','#E', '#F', '#G'];
+    var pitches = ['0', '0.4', '0.8', '1.1', '1.4', '1.7', '2'];
+
+    for(var i = 0; i <= keys.length; i++) {
+      console.log(pitches[i]);
+      $(keys[i]).click({thepitch: pitches[i]}, function (event) {
+        console.log(event.data.thepitch);
+        var speech = responsiveVoice.speak(arg,"UK English Male", {pitch: event.data.thepitch});
+      })
+    }
   }
 
 
